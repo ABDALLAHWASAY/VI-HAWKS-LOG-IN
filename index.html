@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>THE VI HAWKS</title>
+    <style>
+        body {
+            margin: 0;
+            overflow: hidden; /* Prevent scrolling */
+            font-family: Arial, sans-serif;
+        }
+
+        .background-video {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
+            object-fit: cover; /* Ensures the video covers the entire screen */
+            z-index: 1; /* Background layer */
+        }
+
+        .overlay {
+            position: relative;
+            z-index: 2; /* Foreground layer */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        .login-container {
+            background: linear-gradient(135deg, rgba(20, 20, 50, 0.8), rgba(50, 50, 100, 0.8)); /* Gradient background */
+            color: #e5e5e5;
+            padding: 20px 30px;
+            border-radius: 15px;
+            width: 340px;
+            box-shadow: 0px 4px 20px rgba(0, 255, 255, 0.5); /* Neon glow effect */
+            text-align: center;
+            transition: background-color 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        /* Hover effect for the login container */
+        .login-container:hover {
+            box-shadow: 0px 6px 30px rgba(0, 255, 255, 0.8);
+        }
+
+        .login-container h2 {
+            font-family: 'Georgia', serif;
+            font-size: 26px;
+            font-weight: bold;
+            margin: 0 0 20px 0;
+        }
+
+        .login-container label {
+            display: block;
+            text-align: left;
+            margin-top: 10px;
+            font-weight: bold;
+            color: #d1d1d1;
+        }
+
+        .input-field {
+            width: 100%;
+            padding: 10px;
+            margin-top: 5px;
+            margin-bottom: 15px;
+            border: none;
+            border-radius: 5px;
+            color: #1e1e1e;
+            background-color: rgba(255, 255, 255, 0.9);
+            box-sizing: border-box;
+        }
+
+        .facial-recognition-button,
+        .login-button {
+            background: linear-gradient(90deg, #00e5ff, #0099ff); /* Gradient button */
+            color: #fff;
+            padding: 10px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            width: 100%;
+            font-weight: bold;
+            margin-top: 10px;
+            text-shadow: 0px 1px 3px rgba(0, 0, 0, 0.5);
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+
+        .facial-recognition-button:hover,
+        .login-button:hover {
+            transform: scale(1.05);
+            box-shadow: 0px 4px 15px rgba(0, 255, 255, 0.6);
+        }
+
+        .login-button {
+            display: none;
+        }
+
+        .login-button.active {
+            display: block;
+        }
+    </style>
+</head>
+<body>
+    <!-- Background video -->
+    <video class="background-video" autoplay muted loop>
+        <source src="Cyber.mp4" type="video/mp4">
+        Your browser does not support the video tag.
+    </video>
+
+    <!-- Foreground overlay with login container -->
+    <div class="overlay">
+        <div class="login-container">
+            <h2>THE VI HAWKS</h2>
+            <form>
+                <label for="name">Name</label>
+                <input type="text" id="name" name="name" class="input-field" required>
+
+                <label for="rank">Rank</label>
+                <select id="rank" name="rank" class="input-field" required>
+                    <option value="">Select Rank</option>
+                    <option value="Director-General">Director-General</option>
+                    <option value="Additional Director-General">Additional Director-General</option>
+                    <option value="Inspector-General">Inspector-General</option>
+                    <option value="Deputy Inspector-General">Deputy Inspector-General</option>
+                    <option value="Additional Deputy Inspector-General">Additional Deputy Inspector-General</option>
+                    <option value="Commandant">Commandant</option>
+                    <option value="Second-in-Command">Second-in-Command</option>
+                    <option value="Deputy Commandant">Deputy Commandant</option>
+                    <option value="Assistant Commandant">Assistant Commandant</option>
+                    <option value="Subedar-Major">Subedar-Major</option>
+                    <option value="Subedar/Inspector">Subedar/Inspector</option>
+                    <option value="Sub-Inspector">Sub-Inspector</option>
+                    <option value="Head Constable">Head Constable</option>
+                    <option value="Naik">Naik</option>
+                    <option value="Lance Naik">Lance Naik</option>
+                </select>
+
+                <label for="station">Station</label>
+                <select id="station" name="station" class="input-field" required>
+                    <option value="">Select Station</option>
+                    <option value="Northern Frontier: SHQ (Shimla)">Northern Frontier: SHQ (Shimla)</option>
+                    <option value="2nd BN, Kullu, N. Ftr, Dehradun">2nd BN, Kullu, N. Ftr, Dehradun</option>
+                    <option value="TC, Rishikesh">TC, Rishikesh</option>
+                    <option value="North-East Frontier: 33rd BN ITBP Guwahati">North-East Frontier: 33rd BN ITBP Guwahati</option>
+                    <option value="Eastern Frontier: SHQ (Gangtok)">Eastern Frontier: SHQ (Gangtok)</option>
+                    <option value="TC Kathgodam">TC Kathgodam</option>
+                    <option value="Eastern Ftr, Lucknow">Eastern Ftr, Lucknow</option>
+                    <option value="N.W Frontier: 52nd Bn, Amritsar">N.W Frontier: 52nd Bn, Amritsar</option>
+                    <option value="SHQ (Leh)">SHQ (Leh)</option>
+                    <option value="N.W Ftr, Chandigarh">N.W Ftr, Chandigarh</option>
+                </select>
+
+                <label for="id">ID</label>
+                <input type="text" id="id" name="id" class="input-field" required>
+
+                <button type="button" class="facial-recognition-button" onclick="enableLogin()">Facial Recognition</button>
+                <button type="submit" class="login-button" id="login-button">Login</button>
+            </form>
+        </div>
+    </div>
+
+    <script>
+        function enableLogin() {
+            document.getElementById('login-button').classList.add('active');
+            alert('Facial Recognition successful! You can now log in.');
+        }
+    </script>
+</body>
+</html>
